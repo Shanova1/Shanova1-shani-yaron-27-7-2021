@@ -1,5 +1,5 @@
 import React from "react";
-import { autocomplete } from "../Utils/autocomplete.js";
+import { autocomplete } from "../MockResponseData/autocomplete.js";
 
 function SearchBar(props) {
   const citySuggestions = autocomplete.data;
