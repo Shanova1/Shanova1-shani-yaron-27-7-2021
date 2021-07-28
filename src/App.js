@@ -1,22 +1,19 @@
 import "./App.css";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import Home from "./Pages/Home";
-import Favourites from "./Pages/Favourites";
+
 import NavBar from "./Components/NavBar";
+import MainView from "./Components/MainView";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <div className="App">
+      <Router>
         <NavBar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/favourites" component={Favourites} />
-        </Switch>
-      </div>
-    </Router>
+        <MainView />
+      </Router>
+    </div>
   );
 }
 

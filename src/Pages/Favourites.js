@@ -9,7 +9,7 @@ function Favourites(props) {
     <>
       <h1>Favourites</h1>
       {favouriteArray.map((city) => (
-        <FavouriteCard city={city} />
+        <FavouriteCard city={city} key={city.cityKey} />
       ))}
     </>
   );
