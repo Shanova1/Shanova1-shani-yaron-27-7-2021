@@ -1,14 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchAutocomplete } from "../Services/requests.js";
+import { getSuggestions } from "../Services/requests.js";
 
 export const fetchSuggestions = createAsyncThunk(
   "suggestions/fetchSuggestionsStatus",
   async (userInput, thunkAPI) => {
     try {
-      const res = await fetchAutocomplete(userInput);
-      const data = res.data;
+      const resp = await getSuggestions(userInput);
+      const data = resp.data;
       return data;
     } catch (error) {
+      console.log(error);
       return thunkAPI.rejectWithValue({ error: error.message });
     }
   }
@@ -25,7 +26,7 @@ const suggestionsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchSuggestions.pending]: (state, action) => {
+    [fetchSuggestions.pending]: (state) => {
       state.status = "loading";
     },
     [fetchSuggestions.fulfilled]: (state, { payload }) => {

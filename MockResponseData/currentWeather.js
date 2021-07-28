@@ -1,4 +1,4 @@
-export const currentWeather = {
+export const currentWeatherData = {
     "data": [
         {
             "LocalObservationDateTime": "2021-07-26T15:25:00+03:00",

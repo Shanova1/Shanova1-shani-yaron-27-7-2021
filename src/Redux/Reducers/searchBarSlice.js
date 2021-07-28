@@ -1,19 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   userInput: "",
-}
+};
 
 export const searchBarSlice = createSlice({
-  name: 'searchBar',
+  name: "searchBar",
   initialState,
   reducers: {
     setUserInput: (state, action) => {
-      state.userInput = action.payload
+      state.userInput = action.payload;
     },
   },
-})
+});
 
-export const { setUserInput } = searchBarSlice.actions
+export const { setUserInput } = searchBarSlice.actions;
 
-export default searchBarSlice.reducer
+export default searchBarSlice.reducer;

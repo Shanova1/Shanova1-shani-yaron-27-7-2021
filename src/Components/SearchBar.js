@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { autocomplete } from "../MockResponseData/autocomplete.js";
 import { useSelector, useDispatch } from "react-redux";
 import { setUserInput } from "../Redux/Reducers/searchBarSlice";
 import {
   allSuggestons,
   fetchSuggestions,
 } from "../Redux/Reducers/suggestionsSlice";
+import { setChosenCity } from "../Redux/Reducers/chosenCitySlice";
 
 function SearchBar() {
   const [showOptions, setShowOptions] = useState(false);
@@ -17,6 +17,11 @@ function SearchBar() {
 
   const handleInput = (e) => {
     dispatch(setUserInput(e.target.value));
+  };
+
+  const handleClick = (value) => {
+    dispatch(setChosenCity(value));
+    setShowOptions(false);
   };
 
   useEffect(() => {
@@ -42,7 +47,12 @@ function SearchBar() {
               <ul>
                 {showOptions && userInput && suggestions.length
                   ? suggestions.map((city) => (
-                      <li key={city.Key}>
+                      <li
+                        key={city.Key}
+                        onClick={() => {
+                          handleClick({cityKey: city.Key, cityName: city.LocalizedName});
+                        }}
+                      >
                         {city.LocalizedName}, {city.Country.LocalizedName}
                       </li>
                     ))
