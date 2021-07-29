@@ -15,7 +15,6 @@ function CityDisplayFiveDays() {
     useEffect(() => {
         if (chosenCity.cityKey !== '') {
            dispatch(fetchFiveDaysWeather(chosenCity.cityKey));
-           console.log(cityFiveDaysWeather);
         }
     }, [chosenCity])
 

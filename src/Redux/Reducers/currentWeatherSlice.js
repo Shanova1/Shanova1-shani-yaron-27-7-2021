@@ -9,6 +9,7 @@ export const fetchCurrentWeather = createAsyncThunk(
       const data = res.data[0];
       return data;
     } catch (error) {
+      console.log(error);
       return thunkAPI.rejectWithValue({ error: error.message });
     }
   }

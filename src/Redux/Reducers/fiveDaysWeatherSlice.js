@@ -9,6 +9,7 @@ export const fetchFiveDaysWeather = createAsyncThunk(
       const data = res.data.DailyForecasts;
       return data;
     } catch (error) {
+      console.log(error);
       return thunkAPI.rejectWithValue({ error: error.message });
     }
   }
