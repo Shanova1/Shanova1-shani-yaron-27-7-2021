@@ -18,9 +18,9 @@ function FavouriteCard(props) {
 
   return (
     <>
+      <h2>{city.cityName}</h2>
       {cityCurrentWeather.hasOwnProperty("Temperature") && (
         <div>
-          <h2>{city.cityName}</h2>
           <p>
             {cityCurrentWeather.Temperature.Metric.Value}{" "}
             {cityCurrentWeather.Temperature.Metric.Unit}

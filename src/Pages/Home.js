@@ -6,7 +6,7 @@ function Home(props) {
   return (
     <>
       <SearchBar />
-      <CityDisplay />
+      {/* <CityDisplay /> */}
     </>
   );
 }
