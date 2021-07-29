@@ -22,6 +22,7 @@ function SearchBar() {
   const handleClick = (value) => {
     dispatch(setChosenCity(value));
     setShowOptions(false);
+    dispatch(setUserInput(''));
   };
 
   useEffect(() => {

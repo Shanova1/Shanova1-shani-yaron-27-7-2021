@@ -4,6 +4,7 @@ import {
   currentWeather,
   fetchCurrentWeather,
 } from "../Redux/Reducers/currentWeatherSlice";
+import { setChosenCity } from "../Redux/Reducers/chosenCitySlice";
 
 function FavouriteCard(props) {
   const dispatch = useDispatch();
@@ -16,19 +17,25 @@ function FavouriteCard(props) {
     dispatch(fetchCurrentWeather(city.cityKey));
   }, []);
 
+  const handleClick = () => {
+    dispatch(setChosenCity(city));
+  };
+
   return (
     <>
-      <h2>{city.cityName}</h2>
-      {cityCurrentWeather.hasOwnProperty("Temperature") && (
-        <div>
-          <p>
-            {cityCurrentWeather.Temperature.Metric.Value}{" "}
-            {cityCurrentWeather.Temperature.Metric.Unit}
-          </p>
-          <img alt={cityCurrentWeather.WeatherText} src={iconLink} />
-          <p>{cityCurrentWeather.WeatherText}</p>
-        </div>
-      )}
+      <button onClick={handleClick}>
+        <h2>{city.cityName}</h2>
+        {cityCurrentWeather.hasOwnProperty("Temperature") && (
+          <div>
+            <p>
+              {cityCurrentWeather.Temperature.Metric.Value}{" "}
+              {cityCurrentWeather.Temperature.Metric.Unit}
+            </p>
+            <img alt={cityCurrentWeather.WeatherText} src={iconLink} />
+            <p>{cityCurrentWeather.WeatherText}</p>
+          </div>
+        )}
+      </button>
     </>
   );
 }

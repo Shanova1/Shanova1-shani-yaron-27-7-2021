@@ -5,6 +5,7 @@ import currentWeatherReducer from "./Reducers/currentWeatherSlice";
 import chosenCityReducer from "./Reducers/chosenCitySlice";
 import fiveDaysWeatherReducer from "./Reducers/fiveDaysWeatherSlice";
 import favouritesReducer from "./Reducers/favouritesSlice";
+import currentPositionReducer from "./Reducers/currentPositionSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     chosenCity: chosenCityReducer,
     fiveDaysWeather: fiveDaysWeatherReducer,
     favourites: favouritesReducer,
+    currentPosition: currentPositionReducer,
   },
 });

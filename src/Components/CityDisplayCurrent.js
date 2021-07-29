@@ -4,12 +4,10 @@ import {
   currentWeather,
   fetchCurrentWeather,
 } from "../Redux/Reducers/currentWeatherSlice";
-import { chosenCityInfo } from "../Redux/Reducers/chosenCitySlice";
 
-function CityDisplayCurrent() {
+function CityDisplayCurrent(props) {
+  const chosenCity = props.chosenCity;
   const cityCurrentWeather = useSelector(currentWeather);
-  const chosenCity = useSelector(chosenCityInfo);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,9 +15,6 @@ function CityDisplayCurrent() {
       dispatch(fetchCurrentWeather(chosenCity.cityKey));
     }
   }, [chosenCity]);
-
-  const iconNum = cityCurrentWeather.WeatherIcon;
-  const iconLink = `https://www.accuweather.com/images/weathericons/${iconNum}.svg`;
 
   return (
     <>
@@ -30,7 +25,10 @@ function CityDisplayCurrent() {
             {cityCurrentWeather.Temperature.Metric.Value}{" "}
             {cityCurrentWeather.Temperature.Metric.Unit}
           </p>
-          <img alt={cityCurrentWeather.WeatherText} src={iconLink} />
+          <img
+            alt={cityCurrentWeather.WeatherText}
+            src={`https://www.accuweather.com/images/weathericons/${cityCurrentWeather.WeatherIcon}.svg`}
+          />
           <p>{cityCurrentWeather.WeatherText}</p>
         </div>
       )}

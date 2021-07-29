@@ -7,7 +7,7 @@ import Favourites from "../Pages/Favourites";
 function MainView() {
   return (
     <>
-        <Switch>
+      <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/favourites" component={Favourites} />
         </Switch>

@@ -1,27 +1,28 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import FavouriteCard from "../Components/FavouriteCard.js";
-import {removeFavourite} from '../Redux/Reducers/favouritesSlice'
+import FavouriteButton from "../Components/favouriteButton.js";
 
 function Favourites() {
   const favourites = useSelector((state) => state.favourites.favourites);
 
-  const dispatch = useDispatch();
-
-  const handleClick = (cityKey) => {
-    dispatch(removeFavourite(cityKey))
-  }
-
   return (
     <>
       <h1>Favourites</h1>
-      {favourites.length &&
-        favourites.map((city) => (
-          <div>
-            <button onClick={() => handleClick(city.cityKey)}>remove from fav</button>
-            <FavouriteCard cityName={city.cityName} cityKey={city.cityKey} />
-          </div>
-        ))}
+      <Link to="/">
+        {favourites.length &&
+          favourites.map((city) => (
+            <div>
+              <FavouriteButton city={city} key={city.cityKey} />
+                <FavouriteCard
+                  cityName={city.cityName}
+                  cityKey={city.cityKey}
+                  key={city.cityKey}
+                />
+            </div>
+          ))}
+      </Link>
     </>
   );
 }

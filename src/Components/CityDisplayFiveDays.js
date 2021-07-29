@@ -4,12 +4,11 @@ import {
   fiveDaysWeather,
   fetchFiveDaysWeather,
 } from "../Redux/Reducers/fiveDaysWeatherSlice";
-import { chosenCityInfo } from "../Redux/Reducers/chosenCitySlice";
 
-function CityDisplayFiveDays() {
+function CityDisplayFiveDays(props) {
+
+  const chosenCity = props.chosenCity;
   const cityFiveDaysWeather = useSelector(fiveDaysWeather);
-  const chosenCity = useSelector(chosenCityInfo);
-
   const dispatch = useDispatch();
 
     useEffect(() => {
