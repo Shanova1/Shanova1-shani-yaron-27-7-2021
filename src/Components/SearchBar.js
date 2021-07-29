@@ -25,7 +25,8 @@ function SearchBar() {
   };
 
   useEffect(() => {
-    dispatch(fetchSuggestions(userInput));
+    if (userInput !== '')
+    {dispatch(fetchSuggestions(userInput))};
   }, [userInput]);
 
   useEffect(() => {
@@ -68,6 +69,3 @@ function SearchBar() {
 
 export default SearchBar;
 
-// LocalizedName
-// Country.LocalizedName
-// Key

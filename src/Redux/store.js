@@ -3,6 +3,7 @@ import searchBarReducer from "./Reducers/searchBarSlice";
 import suggestionsReducer from "./Reducers/suggestionsSlice";
 import currentWeatherReducer from "./Reducers/currentWeatherSlice";
 import chosenCityReducer from "./Reducers/chosenCitySlice";
+import fiveDaysWeatherReducer from "./Reducers/fiveDaysWeatherSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     suggestions: suggestionsReducer,
     currentWeather: currentWeatherReducer,
     chosenCity: chosenCityReducer,
+    fiveDaysWeather: fiveDaysWeatherReducer,
   },
 });

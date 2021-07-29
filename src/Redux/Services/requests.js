@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apikey = "eNaVVJTGJEZfQF4PbUl8P6LFTcwyrImJ";
+const apikey = "ymykpTgNwevQ1sq2akkpyWBs7nW2Upuo";
 const url = "https://dataservice.accuweather.com";
 
 // const cityKey = "215854";
@@ -12,13 +12,14 @@ export const getSuggestions = async (userInput) => {
   );
 };
 
+// current weather
 export const getCurrentWeather = async (cityKey) => {
   return axios.get(`${url}/currentconditions/v1/${cityKey}?apikey=${apikey}`);
 };
 
 // fiveDaysForecasts
-// export const fetchFiveDaysForecasts = async () => {
-//   treturn await axios.get(
-//       `${url}/forecasts/v1/daily/5day/${cityKey}?apikey=${apikey}`
-//     );
-// };
+export const getFiveDaysWeather = async (cityKey) => {
+  return axios.get(
+      `${url}/forecasts/v1/daily/5day/${cityKey}?apikey=${apikey}&metric=true`
+    );
+};
