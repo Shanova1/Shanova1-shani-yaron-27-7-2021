@@ -4,14 +4,19 @@ import {
   addFavourite,
   removeFavourite,
 } from "../../Redux/Reducers/favouritesSlice";
-import { chosenCityInfo } from "../../Redux/Reducers/chosenCitySlice";
+// import { chosenCityInfo } from "../../Redux/Reducers/chosenCitySlice";
+import { currentCityMOCK } from "../../MockResponseData/currentCityMOCK"; // MOCK
+
 
 function FavouriteButton(props) {
   const [buttonText, setButtonText] = useState("");
   const { city } = props;
   const favourites = useSelector((state) => state.favourites.favourites);
-  const chosenCity = useSelector(chosenCityInfo);
+  // const chosenCity = useSelector(chosenCityInfo);
   const dispatch = useDispatch();
+
+  const chosenCity = currentCityMOCK; // MOCK
+
 
   const isFavourite = () => {
     const id = favourites.findIndex(

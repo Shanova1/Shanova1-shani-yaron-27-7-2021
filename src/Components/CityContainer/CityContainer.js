@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import ChosenCityContainer from '../ChosenCityContainer/ChosenCityContainer' 
+import ChosenCityContainer from "../ChosenCityContainer/ChosenCityContainer";
 import CityFiveDaysWeather from "../CityFiveDaysWeather/CityFiveDaysWeather";
 import FavouriteButton from "../FavouriteButton/FavouriteButton";
 import {
@@ -10,39 +10,43 @@ import {
 import { fetchCurrentPosCity } from "../../Redux/Reducers/currentPosCitySlice";
 import useGeoLocation from "../../Redux/Services/useGeolocation.js";
 
+import { currentCityMOCK } from "../../MockResponseData/currentCityMOCK"; // MOCK
+
 function CityContainer() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const chosenCity = useSelector(chosenCityInfo);
+  // const chosenCity = useSelector(chosenCityInfo);
 
-  // geoPosition
-  const currentPosition = useSelector(
-    (state) => state.currentPosition.currentPosition
-  );
-  const geoLocationStatus = useSelector(
-    (state) => state.currentPosition.geoLocationState
-  );
-  const currentPosCity = useSelector((state) => state.currentPosCity.data);
-  const { getCurrentPosition } = useGeoLocation();
+  const chosenCity = currentCityMOCK; // MOCK
 
-  useEffect(() => {
-    getCurrentPosition();
-  }, []);
+// geoPosition
+  // const currentPosition = useSelector(
+  //   (state) => state.currentPosition.currentPosition
+  // );
+  // const geoLocationStatus = useSelector(
+  //   (state) => state.currentPosition.geoLocationState
+  // );
+  // const currentPosCity = useSelector((state) => state.currentPosCity.data);
+  // const { getCurrentPosition } = useGeoLocation();
 
-  useEffect(() => {
-    dispatch(fetchCurrentPosCity(currentPosition));
-  }, [currentPosition]);
+  // useEffect(() => {
+  //   getCurrentPosition();
+  // }, []);
 
-  useEffect(() => {
-    if (geoLocationStatus) {
-      dispatch(
-        setChosenCity({
-          cityKey: currentPosCity.Key,
-          cityName: currentPosCity.LocalizedName,
-        })
-      );
-    }
-  }, [currentPosCity]);
+  // useEffect(() => {
+  //   dispatch(fetchCurrentPosCity(currentPosition));
+  // }, [currentPosition]);
+
+  // useEffect(() => {
+  //   if (geoLocationStatus) {
+  //     dispatch(
+  //       setChosenCity({
+  //         cityKey: currentPosCity.Key,
+  //         cityName: currentPosCity.LocalizedName,
+  //       })
+  //     );
+  //   }
+  // }, [currentPosCity]);
 
   return (
     <>

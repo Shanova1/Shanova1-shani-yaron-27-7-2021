@@ -5,16 +5,22 @@ import {
   fetchFiveDaysWeather,
 } from "../../Redux/Reducers/fiveDaysWeatherSlice";
 
-function CityFiveDaysWeather(props) {
-  const chosenCity = props.chosenCity;
-  const cityFiveDaysWeather = useSelector(fiveDaysWeather);
-  const dispatch = useDispatch();
+import {FiveDaysForecasts} from '../../MockResponseData/fiveDaysForecasts'
 
-  useEffect(() => {
-    if (chosenCity.cityKey) {
-      dispatch(fetchFiveDaysWeather(chosenCity.cityKey));
-    }
-  }, [chosenCity]);
+
+function CityFiveDaysWeather(props) {
+  // const chosenCity = props.chosenCity;
+  // const cityFiveDaysWeather = useSelector(fiveDaysWeather);
+  // const dispatch = useDispatch();
+
+  const cityFiveDaysWeather = FiveDaysForecasts; // MOCK
+
+
+  // useEffect(() => {
+  //   if (chosenCity.cityKey) {
+  //     dispatch(fetchFiveDaysWeather(chosenCity.cityKey));
+  //   }
+  // }, [chosenCity]);
 
   const dayName = (value) => {
     const date = new Date(value);
@@ -24,7 +30,8 @@ function CityFiveDaysWeather(props) {
 
   return (
     <>
-      {cityFiveDaysWeather.length &&
+      {
+      // cityFiveDaysWeather.length && --MOCK
         cityFiveDaysWeather.map((day) => (
           <div key={day.Date}>
             <h3>{dayName(day.Date)}</h3>

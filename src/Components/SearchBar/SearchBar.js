@@ -7,28 +7,32 @@ import {
 } from "../../Redux/Reducers/suggestionsSlice";
 import { setChosenCity } from "../../Redux/Reducers/chosenCitySlice";
 
+import { autocomplete } from '../../MockResponseData/autocomplete' // MOCK
+
 function SearchBar() {
   const [showOptions, setShowOptions] = useState(false);
 
   const userInput = useSelector((state) => state.searchBar.userInput);
-  const suggestions = useSelector(allSuggestons);
+  // const suggestions = useSelector(allSuggestons);
 
-  const dispatch = useDispatch();
+  const suggestions = autocomplete // MOCK
+
+  // const dispatch = useDispatch();
 
   const handleInput = (e) => {
-    dispatch(setUserInput(e.target.value));
+    // dispatch(setUserInput(e.target.value));
   };
 
   const handleClick = (value) => {
-    dispatch(setChosenCity(value));
+    // dispatch(setChosenCity(value));
     setShowOptions(false);
-    dispatch(setUserInput(''));
+    // dispatch(setUserInput(''));
   };
 
-  useEffect(() => {
-    if (userInput)
-    {dispatch(fetchSuggestions(userInput))};
-  }, [userInput]);
+  // useEffect(() => {
+  //   if (userInput)
+  //   {dispatch(fetchSuggestions(userInput))};
+  // }, [userInput]);
 
   useEffect(() => {
     setShowOptions(true);
@@ -47,8 +51,10 @@ function SearchBar() {
           <div>
             {
               <ul>
-                {showOptions && userInput && suggestions.length
-                  ? suggestions.map((city) => (
+                {
+                // showOptions && userInput && suggestions.length --MOCK
+                  // ? --MOCK
+                  suggestions.map((city) => (
                       <li
                         key={1 + city.Key}
                         onClick={() => {
@@ -58,7 +64,8 @@ function SearchBar() {
                         {city.LocalizedName}, {city.Country.LocalizedName}
                       </li>
                     ))
-                  : null}
+                  // : null --MOCK
+                  }
               </ul>
             }
           </div>
