@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   fiveDaysWeather,
   fetchFiveDaysWeather,
-} from "../Redux/Reducers/fiveDaysWeatherSlice";
+} from "../../Redux/Reducers/fiveDaysWeatherSlice";
 
 function CityFiveDaysWeather(props) {
   const chosenCity = props.chosenCity;
@@ -16,12 +16,18 @@ function CityFiveDaysWeather(props) {
     }
   }, [chosenCity]);
 
+  const dayName = (value) => {
+    const date = new Date(value);
+    const day = date.toString().split(" ")[0];
+    return day;
+  };
+
   return (
     <>
       {cityFiveDaysWeather.length &&
         cityFiveDaysWeather.map((day) => (
           <div key={day.Date}>
-            <h3>{day.Date}</h3>
+            <h3>{dayName(day.Date)}</h3>
             <p>
               {day.Temperature.Minimum.Value}
               {day.Temperature.Minimum.Unit} - {day.Temperature.Maximum.Value}

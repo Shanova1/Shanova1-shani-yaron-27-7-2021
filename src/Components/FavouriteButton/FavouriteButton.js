@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   addFavourite,
   removeFavourite,
-} from "../Redux/Reducers/favouritesSlice";
-import { chosenCityInfo } from "../Redux/Reducers/chosenCitySlice";
+} from "../../Redux/Reducers/favouritesSlice";
+import { chosenCityInfo } from "../../Redux/Reducers/chosenCitySlice";
 
 function FavouriteButton(props) {
   const [buttonText, setButtonText] = useState("");

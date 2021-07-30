@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Home from "../Pages/Home";
-import Favourites from "../Pages/Favourites";
+import Home from "../../Pages/Home/Home";
+import Favourites from "../../Pages/Favourites/Favourites";
 
 function MainView() {
   return (

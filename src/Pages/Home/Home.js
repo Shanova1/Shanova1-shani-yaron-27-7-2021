@@ -1,6 +1,6 @@
 import React from "react";
-import SearchBar from "../Components/SearchBar";
-import CityContainer from "../Components/CityContainer";
+import SearchBar from "../../Components/SearchBar/SearchBar";
+import CityContainer from "../../Components/CityContainer/CityContainer";
 
 function Home(props) {
 

@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import ChosenCityContainer from "./ChosenCityContainer";
-import CityFiveDaysWeather from "./CityFiveDaysWeather";
-import FavouriteButton from "./FavouriteButton";
+import ChosenCityContainer from '../ChosenCityContainer/ChosenCityContainer' 
+import CityFiveDaysWeather from "../CityFiveDaysWeather/CityFiveDaysWeather";
+import FavouriteButton from "../FavouriteButton/FavouriteButton";
 import {
   setChosenCity,
   chosenCityInfo,
-} from "../Redux/Reducers/chosenCitySlice";
-import { fetchCurrentPosCity } from "../Redux/Reducers/currentPosCitySlice";
-import useGeoLocation from "../Redux/Services/useGeolocation.js";
+} from "../../Redux/Reducers/chosenCitySlice";
+import { fetchCurrentPosCity } from "../../Redux/Reducers/currentPosCitySlice";
+import useGeoLocation from "../../Redux/Services/useGeolocation.js";
 
 function CityContainer() {
   const dispatch = useDispatch();
@@ -19,8 +19,8 @@ function CityContainer() {
   const currentPosition = useSelector(
     (state) => state.currentPosition.currentPosition
   );
-  const showCurrentPosiotion = useSelector(
-    (state) => state.currentPosition.showCurrentPosiotion
+  const geoLocationStatus = useSelector(
+    (state) => state.currentPosition.geoLocationState
   );
   const currentPosCity = useSelector((state) => state.currentPosCity.data);
   const { getCurrentPosition } = useGeoLocation();
@@ -34,7 +34,7 @@ function CityContainer() {
   }, [currentPosition]);
 
   useEffect(() => {
-    if (showCurrentPosiotion) {
+    if (geoLocationStatus) {
       dispatch(
         setChosenCity({
           cityKey: currentPosCity.Key,

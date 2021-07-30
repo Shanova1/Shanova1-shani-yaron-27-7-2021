@@ -3,23 +3,23 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   currentWeather,
   fetchCurrentWeather,
-} from "../Redux/Reducers/currentWeatherSlice";
-import CurrentCityData from "./CurrentCityData";
+} from "../../Redux/Reducers/currentWeatherSlice";
+import CurrentCityData from "../CurrentCityData/CurrentCityData";
 
-function FavouriteCard(props) {
-  const dispatch = useDispatch();
+function ChosenCityContainer(props) {
+  const chosenCity = props.chosenCity;
   const cityCurrentWeather = useSelector(currentWeather);
-  const city = props;
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCurrentWeather(city.cityKey));
-  }, [city.cityKey]);
+    dispatch(fetchCurrentWeather(chosenCity.cityKey));
+  }, [chosenCity]);
 
   return (
     <>
       {cityCurrentWeather["Temperature"] && (
         <CurrentCityData
-          chosenCity={city}
+          chosenCity={chosenCity}
           cityCurrentWeather={cityCurrentWeather}
         />
       )}
@@ -27,4 +27,4 @@ function FavouriteCard(props) {
   );
 }
 
-export default FavouriteCard;
+export default ChosenCityContainer;

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setUserInput } from "../Redux/Reducers/searchBarSlice";
+import { setUserInput } from "../../Redux/Reducers/searchBarSlice";
 import {
   allSuggestons,
   fetchSuggestions,
-} from "../Redux/Reducers/suggestionsSlice";
-import { setChosenCity } from "../Redux/Reducers/chosenCitySlice";
+} from "../../Redux/Reducers/suggestionsSlice";
+import { setChosenCity } from "../../Redux/Reducers/chosenCitySlice";
 
 function SearchBar() {
   const [showOptions, setShowOptions] = useState(false);

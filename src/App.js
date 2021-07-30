@@ -3,8 +3,9 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
-import NavBar from "./Components/NavBar";
-import MainView from "./Components/MainView";
+import NavBar from "./Components/NavBar/NavBar";
+import MainView from "./Components/MainView/MainView";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
