@@ -26,7 +26,7 @@ function SearchBar() {
   };
 
   useEffect(() => {
-    if (userInput !== '')
+    if (userInput)
     {dispatch(fetchSuggestions(userInput))};
   }, [userInput]);
 
@@ -50,7 +50,7 @@ function SearchBar() {
                 {showOptions && userInput && suggestions.length
                   ? suggestions.map((city) => (
                       <li
-                        key={city.Key}
+                        key={1 + city.Key}
                         onClick={() => {
                           handleClick({cityKey: city.Key, cityName: city.LocalizedName});
                         }}

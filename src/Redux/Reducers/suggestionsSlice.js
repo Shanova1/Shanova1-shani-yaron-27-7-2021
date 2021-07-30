@@ -5,9 +5,8 @@ export const fetchSuggestions = createAsyncThunk(
   "suggestions/fetchSuggestionsStatus",
   async (userInput, thunkAPI) => {
     try {
-      const resp = await getSuggestions(userInput);
-      const data = resp.data;
-      return data;
+      const res = await getSuggestions(userInput);
+      return res.data;
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue({ error: error.message });

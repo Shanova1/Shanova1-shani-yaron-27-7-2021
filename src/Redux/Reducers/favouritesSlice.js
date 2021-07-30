@@ -9,7 +9,6 @@ export const favouritesSlice = createSlice({
   initialState,
   reducers: {
     addFavourite: (state, action) => {
-      // Redux Toolkit allows 'mutating' the state. It doesn't actually mutate the state because it uses the immer library
       state.favourites.push(action.payload);
     },
     removeFavourite: (state, action) => {

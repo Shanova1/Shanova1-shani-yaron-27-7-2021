@@ -1,7 +1,7 @@
 import { setCurrentPosition } from "../Reducers/currentPositionSlice";
 import { useDispatch } from "react-redux";
 
-function GeoLocation() {
+function useGeoLocation() {
   const dispatch = useDispatch();
 
   const getCurrentPosition = () => {
@@ -26,4 +26,4 @@ function GeoLocation() {
   return { getCurrentPosition };
 }
 
-export default GeoLocation;
+export default useGeoLocation;

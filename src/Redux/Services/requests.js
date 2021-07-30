@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apikey = "D3e7N0qWIywuS80YLjwrXRM50LxFLX8U";
+const apikey = "M0HhaeFo4CZ2KjxAg5WhVhkdFJ5KqxEV";
 const url = "https://dataservice.accuweather.com";
 
 // autocomplete
@@ -23,10 +23,8 @@ export const getFiveDaysWeather = async (cityKey) => {
 };
 
 // currentPosition weather
-export const getCurrentPosWeather = async (currentPosition) => {
+export const getCurrentPosCity = async (currentPosition) => {
   return axios.get(
-    `${url}/locations/v1/cities/geoposition/search?apikey=${apikey}q=${currentPosition}&toplevel=true`
+    `${url}/locations/v1/cities/geoposition/search?apikey=${apikey}&q=${currentPosition}&toplevel=true`
   );
 };
-
-// "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=M0HhaeFo4CZ2KjxAg5WhVhkdFJ5KqxEV&q=32.794044%2C34.989571&toplevel=true"

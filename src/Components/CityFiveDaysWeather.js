@@ -5,23 +5,22 @@ import {
   fetchFiveDaysWeather,
 } from "../Redux/Reducers/fiveDaysWeatherSlice";
 
-function CityDisplayFiveDays(props) {
-
+function CityFiveDaysWeather(props) {
   const chosenCity = props.chosenCity;
   const cityFiveDaysWeather = useSelector(fiveDaysWeather);
   const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (chosenCity.cityKey !== '') {
-           dispatch(fetchFiveDaysWeather(chosenCity.cityKey));
-        }
-    }, [chosenCity])
+  useEffect(() => {
+    if (chosenCity.cityKey) {
+      dispatch(fetchFiveDaysWeather(chosenCity.cityKey));
+    }
+  }, [chosenCity]);
 
   return (
     <>
       {cityFiveDaysWeather.length &&
         cityFiveDaysWeather.map((day) => (
-          <div>
+          <div key={day.Date}>
             <h3>{day.Date}</h3>
             <p>
               {day.Temperature.Minimum.Value}
@@ -44,4 +43,4 @@ function CityDisplayFiveDays(props) {
   );
 }
 
-export default CityDisplayFiveDays;
+export default CityFiveDaysWeather;

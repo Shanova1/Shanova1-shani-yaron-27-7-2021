@@ -6,8 +6,7 @@ export const fetchFiveDaysWeather = createAsyncThunk(
   async (cityKey, thunkAPI) => {
     try {
       const res = await getFiveDaysWeather(cityKey);
-      const data = res.data.DailyForecasts;
-      return data;
+      return res.data.DailyForecasts;
     } catch (error) {
       console.log(error);
       return thunkAPI.rejectWithValue({ error: error.message });

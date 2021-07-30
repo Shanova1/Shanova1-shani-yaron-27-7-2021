@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import GeoLocation from "../Redux/Services/Geolocation";
+import useGeoLocation from "../Redux/Services/useGeoLocation";
 
 const currentPosition = useSelector(
     (state) => state.currentPosition.currentPosition
   );
 
-  const { getCurrentPosition } = GeoLocation();
+  const { getCurrentPosition } = useGeoLocation();
 
   useEffect(() => {
     getCurrentPosition();

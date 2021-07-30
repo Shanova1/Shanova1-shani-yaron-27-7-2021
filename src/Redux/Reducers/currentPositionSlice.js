@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import {getCurrentPosition} from '../Services/Geolocation'
 
 const initialState = {
-    currentPosition: ''
+    currentPosition: '',
+    showCurrentPosiotion: true,
 }
 
 const currentPositionSlice = createSlice({
@@ -11,11 +11,14 @@ const currentPositionSlice = createSlice({
     reducers: {
         setCurrentPosition: (state, action) => {
             state.currentPosition = action.payload;
+        },
+        setShowCurrentPosition: (state, action) => {
+            state.showCurrentPosiotion = action.payload;
         }
     }
 })
 
-export const { setCurrentPosition } = currentPositionSlice.actions;
+export const { setCurrentPosition, setShowCurrentPosition } = currentPositionSlice.actions;
 
 export default currentPositionSlice.reducer;
 

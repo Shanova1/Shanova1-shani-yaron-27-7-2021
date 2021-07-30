@@ -4,12 +4,14 @@ import {
   addFavourite,
   removeFavourite,
 } from "../Redux/Reducers/favouritesSlice";
+import { chosenCityInfo } from "../Redux/Reducers/chosenCitySlice";
 
 function FavouriteButton(props) {
-  const city = props.city;
-  const favourites = useSelector((state) => state.favourites.favourites);
-  const dispatch = useDispatch();
   const [buttonText, setButtonText] = useState("");
+  const { city } = props;
+  const favourites = useSelector((state) => state.favourites.favourites);
+  const chosenCity = useSelector(chosenCityInfo);
+  const dispatch = useDispatch();
 
   const isFavourite = () => {
     const id = favourites.findIndex(
@@ -27,7 +29,7 @@ function FavouriteButton(props) {
 
   useEffect(() => {
     isFavourite() ? setButtonText("Remove") : setButtonText("Add");
-  }, [favourites]);
+  }, [favourites, chosenCity]);
 
   return (
     <>

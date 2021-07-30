@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "../Components/SearchBar";
-import CityDisplay from "../Components/CityDisplay";
+import CityContainer from "../Components/CityContainer";
 
 function Home(props) {
 
@@ -19,7 +19,7 @@ function Home(props) {
   return (
     <>
       <SearchBar />
-      <CityDisplay />
+      <CityContainer />
       {/* <button onClick={check}>checkkkk</button> */}
     </>
   );
