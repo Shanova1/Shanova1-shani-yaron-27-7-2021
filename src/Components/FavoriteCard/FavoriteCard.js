@@ -11,24 +11,17 @@ function FavoriteCard(props) {
   const cityCurrentWeather = useSelector(currentWeather);
   const city = props;
 
-  const weatherFetchStatus = useSelector(
-    (state) => state.currentWeather.status
-  );
-
-
   useEffect(() => {
     dispatch(fetchCurrentWeather(city.cityKey));
   }, [city.cityKey]);
 
   return (
     <>
-      
-        <CurrentCityData
+      <CurrentCityData
         isFavorite={true}
         chosenCity={city}
         cityCurrentWeather={cityCurrentWeather}
-        />
-
+      />
     </>
   );
 }

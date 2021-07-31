@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ChosenCityContainer from "../ChosenCityContainer/ChosenCityContainer";
 import CityFiveDaysWeather from "../CityFiveDaysWeather/CityFiveDaysWeather";
@@ -7,10 +7,12 @@ import {
   setChosenCity,
   chosenCityInfo,
 } from "../../Redux/Reducers/chosenCitySlice";
+import { setGeoLocationState } from "../../Redux/Reducers/currentPositionSlice";
 import { fetchCurrentPosCity } from "../../Redux/Reducers/currentPosCitySlice";
 import useGeoLocation from "../../Hooks/useGeolocation.js";
 
 function CityContainer() {
+  const [dataState, setDataState] = useState(null);
   const dispatch = useDispatch();
   const chosenCity = useSelector(chosenCityInfo);
 
@@ -21,7 +23,7 @@ function CityContainer() {
   const geoLocationStatus = useSelector(
     (state) => state.currentPosition.geoLocationState
   );
-  const currentPosCity = useSelector((state) => state.currentPosCity.data);
+  const currentPosCityData = useSelector((state) => state.currentPosCity.data);
   const { getCurrentPosition } = useGeoLocation();
 
   useEffect(() => {
@@ -29,9 +31,11 @@ function CityContainer() {
   }, []);
 
   useEffect(() => {
-    if (currentPosition !== "fail") {
+    if (currentPosition) {
       dispatch(fetchCurrentPosCity(currentPosition));
-    } else {
+    }
+    if (currentPosition === "fail") {
+      dispatch(setGeoLocationState(false));
       dispatch(
         setChosenCity({
           cityKey: "215854",
@@ -42,21 +46,40 @@ function CityContainer() {
   }, [currentPosition]);
 
   useEffect(() => {
-    if (geoLocationStatus) {
+    if (currentPosCityData && geoLocationStatus) {
       dispatch(
         setChosenCity({
-          cityKey: currentPosCity.Key,
-          cityName: currentPosCity.LocalizedName,
+          cityKey: currentPosCityData.Key,
+          cityName: currentPosCityData.LocalizedName,
         })
       );
     }
-  }, [currentPosCity]);
+  }, [currentPosCityData]);
+
+  // error handling
+  const currentPosCityStatus = useSelector(
+    (state) => state.currentPosCity.status
+  );
+
+  useEffect(() => {
+    setDataState(currentPosCityStatus);
+  }, [currentPosCityStatus]);
 
   return (
     <>
-      <FavoriteButton city={chosenCity} />
-      <ChosenCityContainer chosenCity={chosenCity} />
-      <CityFiveDaysWeather chosenCity={chosenCity} />
+      {dataState === "loading" && (
+        <h2 style={{ marginBottom: "300px" }}>Loading...</h2>
+      )}
+      {dataState === "failed" && (
+        <h2 style={{ marginBottom: "300px" }}>Oops! Something went wrong.</h2>
+      )}
+      {dataState === "succeeded" && (
+        <div>
+          <FavoriteButton city={chosenCity} />
+          <ChosenCityContainer chosenCity={chosenCity} />
+          <CityFiveDaysWeather chosenCity={chosenCity} />
+        </div>
+      )}
     </>
   );
 }

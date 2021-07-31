@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addFavorite,
@@ -10,10 +10,8 @@ import blueHeart from "../../assets/blue-heart.png";
 import "./FavoriteButton.css";
 
 function FavoriteButton(props) {
-  const [buttonText, setButtonText] = useState("");
   const { city } = props;
   const favorites = useSelector((state) => state.favorites.favorites);
-  const chosenCity = useSelector(chosenCityInfo);
   const dispatch = useDispatch();
 
   const isFavorite = () => {
@@ -31,9 +29,7 @@ function FavoriteButton(props) {
       : dispatch(addFavorite(favorite));
   };
 
-  useEffect(() => {
-    isFavorite() ? setButtonText("Remove") : setButtonText("Add");
-  }, [favorites, chosenCity]);
+
 
   return (
     <>

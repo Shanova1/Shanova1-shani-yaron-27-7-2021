@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <Router>
+        <Router basename="/Shanova1-shani-yaron-27-7-2021">
           <NavBar />
           <MainView />
         </Router>

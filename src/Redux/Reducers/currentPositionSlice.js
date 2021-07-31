@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentPosition: "",
+  currentPosition: null,
   geoLocationState: true,
 };
 

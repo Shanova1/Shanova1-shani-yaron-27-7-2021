@@ -9,11 +9,6 @@ import { fetchCityPic } from "../../Redux/Reducers/cityPicSlice";
 
 function ChosenCityContainer(props) {
   const chosenCity = props.chosenCity;
-
-  const weatherFetchStatus = useSelector(
-    (state) => state.currentWeather.status
-  );
-
   const cityCurrentWeather = useSelector(currentWeather);
   const dispatch = useDispatch();
 
