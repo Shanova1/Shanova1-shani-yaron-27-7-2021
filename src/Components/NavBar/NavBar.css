@@ -1,3 +1,51 @@
-Nav {
-    background: aqua;
+.navbar {
+  padding: 30px 0;
+  background: #74d8ec;
+  width: 100%;
+}
+
+.weather-icon {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+  position: relative;
+  bottom: 5px;
+  left: 5px;
+}
+
+#navbar-brand {
+  font-weight: 700;
+  font-size: 30px;
+  position: relative;
+  right: 150px;
+}
+
+.navbar-link {
+  font-weight: normal;
+  font-size: 23px;
+  position: relative;
+  left: 150px;
+  margin-right: 10px;
+}
+
+/* Samsung Galaxy S5 Portrait */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  #navbar-brand {
+    font-size: 15px;
+    right: 0px;
+  }
+
+  .weather-icon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .navbar-link {
+    font-size: 13px;
+    position: relative;
+    left: 0px;
+    text-align: right;
+    margin-right: 10px;
+  }
+
 }

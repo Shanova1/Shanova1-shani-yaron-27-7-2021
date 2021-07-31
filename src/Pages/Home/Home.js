@@ -1,26 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import CityContainer from "../../Components/CityContainer/CityContainer";
+import "./Home.css";
 
-function Home(props) {
+function Home() {
+  const [background, setBackground] = useState({});
+  const cityURL = useSelector((state) => state.cityPic.data);
 
-  // const arr = [{ cityKey: "215854", cityName: "Tel Aviv" }, {cityKey:"349727", cityName:"New York"}];
-
-
-//  roundOneLikes.filter((obj1) =>
-//   roundTwoLikes.some((obj2) => obj1.id === obj2.id)
-//   );
-
-// const check = () => {
-//   console.log(arr.some((city) => city.cityKey === "215854"))
-// }
-
+useEffect(() => {
+    cityURL &&
+      setBackground({
+        backgroundImage: `linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.5)), url(${cityURL})`,
+      });
+  }, [cityURL]);
 
   return (
     <>
-      <SearchBar />
-      <CityContainer />
-      {/* <button onClick={check}>checkkkk</button> */}
+      <div className="home-wrapper" style={background}>
+        <SearchBar />
+        <CityContainer />
+      </div>
     </>
   );
 }

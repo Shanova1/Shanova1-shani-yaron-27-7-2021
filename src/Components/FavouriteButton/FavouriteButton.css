@@ -1,0 +1,14 @@
+.fav-icon {
+    height: 40px;
+    width: 45px;
+    margin: 15px 0;
+}
+
+.fav-icon:hover {
+    cursor: pointer;
+    transition: 0.3s all;
+    height: 50px;
+    width: 55px;
+    margin: 10px 0;
+    ;
+}

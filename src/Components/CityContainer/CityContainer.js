@@ -8,18 +8,20 @@ import {
   chosenCityInfo,
 } from "../../Redux/Reducers/chosenCitySlice";
 import { fetchCurrentPosCity } from "../../Redux/Reducers/currentPosCitySlice";
-import useGeoLocation from "../../Redux/Services/useGeolocation.js";
+import useGeoLocation from "../../Hooks/useGeolocation.js";
 
-import { currentCityMOCK } from "../../MockResponseData/currentCityMOCK"; // MOCK
 
 function CityContainer() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const chosenCity = useSelector(chosenCityInfo);
+  const chosenCity = useSelector(chosenCityInfo);
 
-  const chosenCity = currentCityMOCK; // MOCK
+  // const currentPositionStatus = useSelector(
+  //   (state) => state.currentPosCity.status
+  // );
 
-// geoPosition
+
+  // geoPosition
   // const currentPosition = useSelector(
   //   (state) => state.currentPosition.currentPosition
   // );

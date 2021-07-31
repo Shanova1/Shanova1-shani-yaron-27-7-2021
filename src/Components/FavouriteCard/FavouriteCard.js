@@ -5,14 +5,15 @@ import {
   fetchCurrentWeather,
 } from "../../Redux/Reducers/currentWeatherSlice";
 import CurrentCityData from "../CurrentCityData/CurrentCityData";
-import { currentWeatherData } from "../../MockResponseData/currentWeather"; // MOCK
 
 function FavouriteCard(props) {
   const dispatch = useDispatch();
-  // const cityCurrentWeather = useSelector(currentWeather);
+  const cityCurrentWeather = useSelector(currentWeather);
   const city = props;
 
-  const cityCurrentWeather = currentWeatherData; // MOCK
+  const weatherFetchStatus = useSelector(
+    (state) => state.currentWeather.status
+  );
 
 
   useEffect(() => {
@@ -23,8 +24,9 @@ function FavouriteCard(props) {
     <>
       {cityCurrentWeather["Temperature"] && (
         <CurrentCityData
-          chosenCity={city}
-          cityCurrentWeather={cityCurrentWeather}
+        isFavourite={true}
+        chosenCity={city}
+        cityCurrentWeather={cityCurrentWeather}
         />
       )}
     </>

@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  favourites: [{ cityKey: "215854", cityName: "Tel Aviv" }, {cityKey:"349727", cityName:"New York"}],
+  favourites: [
+    { cityKey: "215854", cityName: "Tel Aviv" },
+    { cityKey: "349727", cityName: "New York" },
+  ],
 };
 
 export const favouritesSlice = createSlice({

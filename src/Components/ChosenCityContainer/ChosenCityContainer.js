@@ -5,19 +5,22 @@ import {
   fetchCurrentWeather,
 } from "../../Redux/Reducers/currentWeatherSlice";
 import CurrentCityData from "../CurrentCityData/CurrentCityData";
-
-import { currentWeatherData } from "../../MockResponseData/currentWeather"; // MOCK
+import { fetchCityPic } from "../../Redux/Reducers/cityPicSlice";
 
 function ChosenCityContainer(props) {
   const chosenCity = props.chosenCity;
-  // const cityCurrentWeather = useSelector(currentWeather);
-  // const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(fetchCurrentWeather(chosenCity.cityKey));
-  // }, [chosenCity]);
+  const weatherFetchStatus = useSelector(
+    (state) => state.currentWeather.status
+  );
 
-  const cityCurrentWeather = currentWeatherData; // MOCK
+  const cityCurrentWeather = useSelector(currentWeather);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentWeather(chosenCity.cityKey));
+    dispatch(fetchCityPic(chosenCity))
+  }, [chosenCity]);
 
   return (
     <>

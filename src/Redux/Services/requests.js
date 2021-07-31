@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apikey = "W3f6dtEqemrg7LGsLtAAvJzQCk1gLwRR";
+const apikey = "ymykpTgNwevQ1sq2akkpyWBs7nW2Upuo";
 const url = "https://dataservice.accuweather.com";
 
 // autocomplete

@@ -1,4 +1,4 @@
-import { setCurrentPosition } from "../Reducers/currentPositionSlice";
+import { setCurrentPosition } from "../Redux/Reducers/currentPositionSlice";
 import { useDispatch } from "react-redux";
 
 function useGeoLocation() {

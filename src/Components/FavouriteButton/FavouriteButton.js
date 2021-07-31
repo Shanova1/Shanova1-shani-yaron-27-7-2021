@@ -4,19 +4,17 @@ import {
   addFavourite,
   removeFavourite,
 } from "../../Redux/Reducers/favouritesSlice";
-// import { chosenCityInfo } from "../../Redux/Reducers/chosenCitySlice";
-import { currentCityMOCK } from "../../MockResponseData/currentCityMOCK"; // MOCK
-
+import { chosenCityInfo } from "../../Redux/Reducers/chosenCitySlice";
+import whiteHeart from "../../assets/white-heart.png";
+import blueHeart from "../../assets/blue-heart.png";
+import "./FavouriteButton.css";
 
 function FavouriteButton(props) {
   const [buttonText, setButtonText] = useState("");
   const { city } = props;
   const favourites = useSelector((state) => state.favourites.favourites);
-  // const chosenCity = useSelector(chosenCityInfo);
+  const chosenCity = useSelector(chosenCityInfo);
   const dispatch = useDispatch();
-
-  const chosenCity = currentCityMOCK; // MOCK
-
 
   const isFavourite = () => {
     const id = favourites.findIndex(
@@ -25,7 +23,8 @@ function FavouriteButton(props) {
     return id !== -1;
   };
 
-  const toggleFavourite = () => {
+  const toggleFavourite = (e) => {
+    e.stopPropagation();
     const favourite = city;
     isFavourite()
       ? dispatch(removeFavourite(favourite.cityKey))
@@ -38,7 +37,12 @@ function FavouriteButton(props) {
 
   return (
     <>
-      <button onClick={toggleFavourite}>{buttonText}</button>
+      <img
+        onClick={toggleFavourite}
+        alt="fav heart"
+        src={isFavourite() ? blueHeart : whiteHeart}
+        className="fav-icon"
+      />
     </>
   );
 }

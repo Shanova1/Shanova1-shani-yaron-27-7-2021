@@ -16,7 +16,7 @@ export const fetchFiveDaysWeather = createAsyncThunk(
 
 const initialState = {
   data: [],
-  status: "idle",
+  status: null,
   error: null,
 };
 
