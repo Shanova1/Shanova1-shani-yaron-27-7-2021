@@ -7,7 +7,7 @@
     text-shadow: 0.1px 0.1px 3px #cdf4ff;
 }
 
-.city-data-wrapper-favourite {
+.city-data-wrapper-favorite {
     color: black;
     background-color: #baf4ff;
     display: flex;
@@ -30,7 +30,7 @@
 
 }
 
-.city-data-card-favourite {
+.city-data-card-favorite {
     color: black;
     background-color: #baf4ff;
     display: flex;
@@ -41,11 +41,11 @@
     
 }
 
-.city-data-wrapper-favourite:hover {
+.city-data-wrapper-favorite:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.city-name-favourite{
+.city-name-favorite{
     font-size: 35px;
     font-weight: 700;
     text-align: center;

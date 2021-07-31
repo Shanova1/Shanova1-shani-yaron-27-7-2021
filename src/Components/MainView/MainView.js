@@ -2,14 +2,14 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "../../Pages/Home/Home";
-import Favourites from "../../Pages/Favourites/Favourites";
+import Favorites from "../../Pages/Favorites/Favorites";
 
 function MainView() {
   return (
     <>
       <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/favourites" component={Favourites} />
+          <Route path="/favorites" component={Favorites} />
         </Switch>
     </>
   );

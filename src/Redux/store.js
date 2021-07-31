@@ -4,7 +4,7 @@ import suggestionsReducer from "./Reducers/suggestionsSlice";
 import currentWeatherReducer from "./Reducers/currentWeatherSlice";
 import chosenCityReducer from "./Reducers/chosenCitySlice";
 import fiveDaysWeatherReducer from "./Reducers/fiveDaysWeatherSlice";
-import favouritesReducer from "./Reducers/favouritesSlice";
+import favoritesReducer from "./Reducers/favoritesSlice";
 import currentPositionReducer from "./Reducers/currentPositionSlice";
 import currentPosCityReducer from "./Reducers/currentPosCitySlice";
 import cityPicReducer from "./Reducers/cityPicSlice";
@@ -17,7 +17,7 @@ export const store = configureStore({
     currentWeather: currentWeatherReducer,
     chosenCity: chosenCityReducer,
     fiveDaysWeather: fiveDaysWeatherReducer,
-    favourites: favouritesReducer,
+    favorites: favoritesReducer,
     currentPosition: currentPositionReducer,
     currentPosCity: currentPosCityReducer,
     cityPic: cityPicReducer,

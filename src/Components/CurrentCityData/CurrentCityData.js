@@ -6,7 +6,7 @@ import useConvertToF from "../../Hooks/useConvertToF";
 function CurrentCityData(props) {
   const [dataState, setDataState] = useState(null);
 
-  const { chosenCity, cityCurrentWeather, isFavourite } = props;
+  const { chosenCity, cityCurrentWeather, isFavorite } = props;
   const weatherFetchStatus = useSelector(
     (state) => state.currentWeather.status
   );
@@ -22,18 +22,18 @@ function CurrentCityData(props) {
     <>
       <div
         className={`${
-          isFavourite ? "city-data-wrapper-favourite" : "city-data-wrapper"
+          isFavorite ? "city-data-wrapper-favorite" : "city-data-wrapper"
         }`}
       >
         <h2 className={`${
-            isFavourite ? "city-name-favourite" : "city-name"
+            isFavorite ? "city-name-favorite" : "city-name"
           }`}>{chosenCity.cityName}</h2>
         {dataState === "loading" && <h2>Loading...</h2>}
         {dataState === "failed" && <h2>Oops! Something went wrong.</h2>}
         {dataState === "succeeded" && (
           <div
           className={`${
-            isFavourite ? "city-data-card-favourite" : "city-data-card"
+            isFavorite ? "city-data-card-favorite" : "city-data-card"
           }`}
           >
             {showCelsuis ? (
@@ -51,7 +51,7 @@ function CurrentCityData(props) {
               <img
                 alt={cityCurrentWeather.WeatherText}
                 className={`${
-                  isFavourite ? "fav-weather-img" : "current-weather-img"
+                  isFavorite ? "fav-weather-img" : "current-weather-img"
                 }`}
                 src={`https://www.accuweather.com/images/weathericons/${cityCurrentWeather.WeatherIcon}.svg`}
               />

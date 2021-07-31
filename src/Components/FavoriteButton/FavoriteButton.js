@@ -1,50 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  addFavourite,
-  removeFavourite,
-} from "../../Redux/Reducers/favouritesSlice";
+  addFavorite,
+  removeFavorite,
+} from "../../Redux/Reducers/favoritesSlice";
 import { chosenCityInfo } from "../../Redux/Reducers/chosenCitySlice";
 import whiteHeart from "../../assets/white-heart.png";
 import blueHeart from "../../assets/blue-heart.png";
-import "./FavouriteButton.css";
+import "./FavoriteButton.css";
 
-function FavouriteButton(props) {
+function FavoriteButton(props) {
   const [buttonText, setButtonText] = useState("");
   const { city } = props;
-  const favourites = useSelector((state) => state.favourites.favourites);
+  const favorites = useSelector((state) => state.favorites.favorites);
   const chosenCity = useSelector(chosenCityInfo);
   const dispatch = useDispatch();
 
-  const isFavourite = () => {
-    const id = favourites.findIndex(
+  const isFavorite = () => {
+    const id = favorites.findIndex(
       (thiCity) => thiCity.cityKey === city.cityKey
     );
     return id !== -1;
   };
 
-  const toggleFavourite = (e) => {
+  const toggleFavorite = (e) => {
     e.stopPropagation();
-    const favourite = city;
-    isFavourite()
-      ? dispatch(removeFavourite(favourite.cityKey))
-      : dispatch(addFavourite(favourite));
+    const favorite = city;
+    isFavorite()
+      ? dispatch(removeFavorite(favorite.cityKey))
+      : dispatch(addFavorite(favorite));
   };
 
   useEffect(() => {
-    isFavourite() ? setButtonText("Remove") : setButtonText("Add");
-  }, [favourites, chosenCity]);
+    isFavorite() ? setButtonText("Remove") : setButtonText("Add");
+  }, [favorites, chosenCity]);
 
   return (
     <>
       <img
-        onClick={toggleFavourite}
+        onClick={toggleFavorite}
         alt="fav heart"
-        src={isFavourite() ? blueHeart : whiteHeart}
+        src={isFavorite() ? blueHeart : whiteHeart}
         className="fav-icon"
       />
     </>
   );
 }
 
-export default FavouriteButton;
+export default FavoriteButton;

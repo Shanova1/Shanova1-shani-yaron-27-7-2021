@@ -1,4 +1,4 @@
-.favourites-wrapper {
+.favorites-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,20 +6,20 @@
   height: 90vh;
 }
 
-.favourites-title {
+.favorites-title {
   margin-top: 20px;
   font-size: 65px;
   font-weight: 700;
   text-align: center;
 }
 
-.favourites-sub-title {
+.favorites-sub-title {
   text-align: center;
   margin-left: 5px;
     margin-right: 5px;
 }
 
-.favourites-cities-grid {
+.favorites-cities-grid {
   display: grid;
   grid-template-columns: repeat(3, 25%);
   column-gap: 5%;
@@ -29,29 +29,29 @@
   margin-top: 60px;
 }
 
-.favourite-card-container {
+.favorite-card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
-.favoutire-button-favourite-page {
+.favoutire-button-favorite-page {
   position: relative;
   top: 100px;
 }
 
-.favourite-link {
+.favorite-link {
   text-decoration: none;
 }
 
 /* Samsung Galaxy S5 Portrait */
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
-  .favourites-cities-grid {
+  .favorites-cities-grid {
     display: block;
   }
 
-  .favourites-title {
+  .favorites-title {
 
     font-size: 60px;
 

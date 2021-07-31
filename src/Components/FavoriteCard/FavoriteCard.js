@@ -6,7 +6,7 @@ import {
 } from "../../Redux/Reducers/currentWeatherSlice";
 import CurrentCityData from "../CurrentCityData/CurrentCityData";
 
-function FavouriteCard(props) {
+function FavoriteCard(props) {
   const dispatch = useDispatch();
   const cityCurrentWeather = useSelector(currentWeather);
   const city = props;
@@ -24,7 +24,7 @@ function FavouriteCard(props) {
     <>
       
         <CurrentCityData
-        isFavourite={true}
+        isFavorite={true}
         chosenCity={city}
         cityCurrentWeather={cityCurrentWeather}
         />
@@ -33,4 +33,4 @@ function FavouriteCard(props) {
   );
 }
 
-export default FavouriteCard;
+export default FavoriteCard;

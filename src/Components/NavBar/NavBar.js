@@ -23,8 +23,8 @@ function NavBar() {
               <Nav.Link as={Link} to="/" className="navbar-link">
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/favourites" className="navbar-link">
-                Favourites
+              <Nav.Link as={Link} to="/favorites" className="navbar-link">
+                Favorites
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

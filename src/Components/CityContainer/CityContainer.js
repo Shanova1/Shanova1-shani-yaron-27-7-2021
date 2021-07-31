@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ChosenCityContainer from "../ChosenCityContainer/ChosenCityContainer";
 import CityFiveDaysWeather from "../CityFiveDaysWeather/CityFiveDaysWeather";
-import FavouriteButton from "../FavouriteButton/FavouriteButton";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import {
   setChosenCity,
   chosenCityInfo,
@@ -54,7 +54,7 @@ function CityContainer() {
 
   return (
     <>
-      <FavouriteButton city={chosenCity} />
+      <FavoriteButton city={chosenCity} />
       <ChosenCityContainer chosenCity={chosenCity} />
       <CityFiveDaysWeather chosenCity={chosenCity} />
     </>
