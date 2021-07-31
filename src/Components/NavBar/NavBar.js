@@ -1,5 +1,5 @@
 import React from "react";
-import CtoFButton from '../CtoFButton/CtoFButton'
+import CtoFButton from "../CtoFButton/CtoFButton";
 import Nav from "react-bootstrap/Nav";
 import { Container, Navbar } from "react-bootstrap";
 import "./NavBar.css";
@@ -20,8 +20,6 @@ function NavBar() {
           <Navbar.Collapse>
             <CtoFButton />
             <Nav>
-              {/*<Nav.Link href="/" className={`${currentPage === 'home' ? "navbar-link-selected" : "navbar-link"}`}>Home</Nav.Link>*/}
-              {/*<Nav.Link href="/favourites" className={`${currentPage === 'favourites' ? "navbar-link-selected" : "navbar-link"}`}>Home</Nav.Link>*/}
               <Nav.Link as={Link} to="/" className="navbar-link">
                 Home
               </Nav.Link>

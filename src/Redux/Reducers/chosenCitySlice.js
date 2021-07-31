@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  city: {
-    cityKey: "215854",
-    cityName: "Tel Aviv",
-  },
+  city: {},
 };
 
 export const chosenCitySlice = createSlice({

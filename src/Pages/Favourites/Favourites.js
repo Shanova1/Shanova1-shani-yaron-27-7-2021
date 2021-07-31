@@ -8,6 +8,7 @@ import { setChosenCity } from "../../Redux/Reducers/chosenCitySlice";
 import "./Favourites.css";
 
 function Favourites() {
+  
   const dispatch = useDispatch();
   const favourites = useSelector((state) => state.favourites.favourites);
 

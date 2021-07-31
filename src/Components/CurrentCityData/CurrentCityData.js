@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./CurrentCityData.css";
-import { useSelector, useDispatch } from "react-redux";
-// import { fetchCityPic } from "../../Redux/Reducers/cityPicSlice";
+import { useSelector } from "react-redux";
 import useConvertToF from "../../Hooks/useConvertToF";
 
 function CurrentCityData(props) {
-  const { chosenCity, cityCurrentWeather, isFavourite } = props;
-  // const [cityBackground, setCityBackground] = useState(false);
-  // const dispatch = useDispatch();
-  // const cityPicData = useSelector((state) => state.cityPic.data);
-  // const cityPicDataStatus = useSelector((state) => state.cityPic.status);
+  const [dataState, setDataState] = useState(null);
 
-  // useEffect(() => {
-  //   if (cityBackground === false) {
-  //     dispatch(fetchCityPic(chosenCity));
-  //     setCityBackground(true);
-  //   }
-  // }, []);
+  const { chosenCity, cityCurrentWeather, isFavourite } = props;
+  const weatherFetchStatus = useSelector(
+    (state) => state.currentWeather.status
+  );
 
   const showCelsuis = useSelector((state) => state.temperatureDegree.celcius);
   const { convertToF } = useConvertToF();
+
+  useEffect(() => {
+    setDataState(weatherFetchStatus);
+  }, [weatherFetchStatus]);
 
   return (
     <>
@@ -28,28 +25,40 @@ function CurrentCityData(props) {
           isFavourite ? "city-data-wrapper-favourite" : "city-data-wrapper"
         }`}
       >
-        <h2 className="city-name">{chosenCity.cityName}</h2>
-        {showCelsuis ? (
-          <p>
-            {cityCurrentWeather.Temperature.Metric.Value}
-            {"° C"}
-          </p>
-        ) : (
-          <p>
-            {convertToF(cityCurrentWeather.Temperature.Metric.Value)}
-            {"° F"}
-          </p>
+        <h2 className={`${
+            isFavourite ? "city-name-favourite" : "city-name"
+          }`}>{chosenCity.cityName}</h2>
+        {dataState === "loading" && <h2>Loading...</h2>}
+        {dataState === "failed" && <h2>Oops! Something went wrong.</h2>}
+        {dataState === "succeeded" && (
+          <div
+          className={`${
+            isFavourite ? "city-data-card-favourite" : "city-data-card"
+          }`}
+          >
+            {showCelsuis ? (
+              <p>
+                {cityCurrentWeather.Temperature.Metric.Value}
+                {"° C"}
+              </p>
+            ) : (
+              <p>
+                {convertToF(cityCurrentWeather.Temperature.Metric.Value)}
+                {"° F"}
+              </p>
+            )}
+            <div className="temperature-desc">
+              <img
+                alt={cityCurrentWeather.WeatherText}
+                className={`${
+                  isFavourite ? "fav-weather-img" : "current-weather-img"
+                }`}
+                src={`https://www.accuweather.com/images/weathericons/${cityCurrentWeather.WeatherIcon}.svg`}
+              />
+              <p>{cityCurrentWeather.WeatherText}</p>
+            </div>
+          </div>
         )}
-        <div className="temperature-desc">
-          <img
-            alt={cityCurrentWeather.WeatherText}
-            className={`${
-              isFavourite ? "fav-weather-img" : "current-weather-img"
-            }`}
-            src={`https://www.accuweather.com/images/weathericons/${cityCurrentWeather.WeatherIcon}.svg`}
-          />
-          <p>{cityCurrentWeather.WeatherText}</p>
-        </div>
       </div>
     </>
   );

@@ -19,11 +19,12 @@ function useGeoLocation() {
 
     const error = (err) => {
       console.warn(`ERROR(${err.code}): ${err.message}`);
+      dispatch(setCurrentPosition('fail'));
     };
 
     navigator.geolocation.getCurrentPosition(success, error, options);
   };
-  return { getCurrentPosition };
+  return { getCurrentPosition,  };
 }
 
 export default useGeoLocation;

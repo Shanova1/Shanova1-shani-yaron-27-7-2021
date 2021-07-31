@@ -4,6 +4,7 @@
     align-items: center;
     font-size: 40px;
     font-weight: 450;
+    text-shadow: 0.1px 0.1px 3px #cdf4ff;
 }
 
 .city-data-wrapper-favourite {
@@ -19,15 +20,41 @@
     outline-color: #212529;
     padding-right: 30px;
     padding-left: 30px;
+    
+}
+
+.city-data-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.city-data-card-favourite {
+    color: black;
+    background-color: #baf4ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+
+    
 }
 
 .city-data-wrapper-favourite:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.city-name{
-    font-size: 45px;
+.city-name-favourite{
+    font-size: 35px;
     font-weight: 700;
+    text-align: center;
+}
+
+.city-name{
+    font-size: 60px;
+    font-weight: 700;
+    text-align: center;
 }
 
 .temperature-desc {

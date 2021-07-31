@@ -22,13 +22,13 @@ function FavouriteCard(props) {
 
   return (
     <>
-      {cityCurrentWeather["Temperature"] && (
+      
         <CurrentCityData
         isFavourite={true}
         chosenCity={city}
         cityCurrentWeather={cityCurrentWeather}
         />
-      )}
+
     </>
   );
 }

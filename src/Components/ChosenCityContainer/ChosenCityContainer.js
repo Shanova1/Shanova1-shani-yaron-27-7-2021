@@ -18,18 +18,18 @@ function ChosenCityContainer(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCurrentWeather(chosenCity.cityKey));
-    dispatch(fetchCityPic(chosenCity))
+    if (chosenCity.cityKey) {
+      dispatch(fetchCurrentWeather(chosenCity.cityKey));
+      dispatch(fetchCityPic(chosenCity));
+    }
   }, [chosenCity]);
 
   return (
     <>
-      {cityCurrentWeather["Temperature"] && (
-        <CurrentCityData
-          chosenCity={chosenCity}
-          cityCurrentWeather={cityCurrentWeather}
-        />
-      )}
+      <CurrentCityData
+        chosenCity={chosenCity}
+        cityCurrentWeather={cityCurrentWeather}
+      />
     </>
   );
 }
