@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Shanova1-shani-yaron-27-7-2021/static/css/main.32d931d1.chunk.css",
-    "main.js": "/Shanova1-shani-yaron-27-7-2021/static/js/main.eee12aa9.chunk.js",
-    "main.js.map": "/Shanova1-shani-yaron-27-7-2021/static/js/main.eee12aa9.chunk.js.map",
+    "main.css": "/Shanova1-shani-yaron-27-7-2021/static/css/main.ab6eb9c0.chunk.css",
+    "main.js": "/Shanova1-shani-yaron-27-7-2021/static/js/main.9feebbe2.chunk.js",
+    "main.js.map": "/Shanova1-shani-yaron-27-7-2021/static/js/main.9feebbe2.chunk.js.map",
     "runtime-main.js": "/Shanova1-shani-yaron-27-7-2021/static/js/runtime-main.07a4e887.js",
     "runtime-main.js.map": "/Shanova1-shani-yaron-27-7-2021/static/js/runtime-main.07a4e887.js.map",
     "static/css/2.4be38407.chunk.css": "/Shanova1-shani-yaron-27-7-2021/static/css/2.4be38407.chunk.css",
-    "static/js/2.1d3b1808.chunk.js": "/Shanova1-shani-yaron-27-7-2021/static/js/2.1d3b1808.chunk.js",
-    "static/js/2.1d3b1808.chunk.js.map": "/Shanova1-shani-yaron-27-7-2021/static/js/2.1d3b1808.chunk.js.map",
+    "static/js/2.ef37da00.chunk.js": "/Shanova1-shani-yaron-27-7-2021/static/js/2.ef37da00.chunk.js",
+    "static/js/2.ef37da00.chunk.js.map": "/Shanova1-shani-yaron-27-7-2021/static/js/2.ef37da00.chunk.js.map",
     "index.html": "/Shanova1-shani-yaron-27-7-2021/index.html",
     "static/css/2.4be38407.chunk.css.map": "/Shanova1-shani-yaron-27-7-2021/static/css/2.4be38407.chunk.css.map",
-    "static/css/main.32d931d1.chunk.css.map": "/Shanova1-shani-yaron-27-7-2021/static/css/main.32d931d1.chunk.css.map",
-    "static/js/2.1d3b1808.chunk.js.LICENSE.txt": "/Shanova1-shani-yaron-27-7-2021/static/js/2.1d3b1808.chunk.js.LICENSE.txt",
+    "static/css/main.ab6eb9c0.chunk.css.map": "/Shanova1-shani-yaron-27-7-2021/static/css/main.ab6eb9c0.chunk.css.map",
+    "static/js/2.ef37da00.chunk.js.LICENSE.txt": "/Shanova1-shani-yaron-27-7-2021/static/js/2.ef37da00.chunk.js.LICENSE.txt",
     "static/media/blue-heart.5eceb320.png": "/Shanova1-shani-yaron-27-7-2021/static/media/blue-heart.5eceb320.png",
     "static/media/weather-icon.4ef90837.svg": "/Shanova1-shani-yaron-27-7-2021/static/media/weather-icon.4ef90837.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.07a4e887.js",
     "static/css/2.4be38407.chunk.css",
-    "static/js/2.1d3b1808.chunk.js",
-    "static/css/main.32d931d1.chunk.css",
-    "static/js/main.eee12aa9.chunk.js"
+    "static/js/2.ef37da00.chunk.js",
+    "static/css/main.ab6eb9c0.chunk.css",
+    "static/js/main.9feebbe2.chunk.js"
   ]
 }
