@@ -8,7 +8,6 @@ import { setChosenCity } from "../../Redux/Reducers/chosenCitySlice";
 import "./Favorites.css";
 
 function Favorites() {
-  
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.favorites);
 
@@ -25,7 +24,7 @@ function Favorites() {
           Click on city to see five days forecast
         </h4>
         <div className="favorites-cities-grid">
-          {favorites.length &&
+          {favorites.length ? (
             favorites.map((city) => (
               <div className="favorite-card-container">
                 <div className="favoutire-button-favorite-page">
@@ -41,7 +40,14 @@ function Favorites() {
                   </Link>
                 </div>
               </div>
-            ))}
+            ))
+          ) : (
+            <div className="favorite-card-container">
+              <h3 className="favorites-sub-title-h3">
+                Add some cities to favorites
+              </h3>
+            </div>
+          )}
         </div>
       </div>
     </>
