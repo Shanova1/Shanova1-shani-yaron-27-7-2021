@@ -15,11 +15,10 @@ function NavBar() {
             <img src={img} alt="weather-icon" className="weather-icon" />
             <span>Shani Yaron Weather App</span>
           </Navbar.Brand>
-
           <Navbar.Toggle />
           <Navbar.Collapse>
-            <CtoFButton />
-            <Nav>
+            <Nav className="navbar-links-container">
+              <CtoFButton />
               <Nav.Link as={Link} to="/" className="navbar-link">
                 Home
               </Nav.Link>

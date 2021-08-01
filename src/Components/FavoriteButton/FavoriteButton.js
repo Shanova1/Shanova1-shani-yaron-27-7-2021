@@ -4,7 +4,6 @@ import {
   addFavorite,
   removeFavorite,
 } from "../../Redux/Reducers/favoritesSlice";
-import { chosenCityInfo } from "../../Redux/Reducers/chosenCitySlice";
 import whiteHeart from "../../assets/white-heart.png";
 import blueHeart from "../../assets/blue-heart.png";
 import "./FavoriteButton.css";
@@ -28,8 +27,6 @@ function FavoriteButton(props) {
       ? dispatch(removeFavorite(favorite.cityKey))
       : dispatch(addFavorite(favorite));
   };
-
-
 
   return (
     <>

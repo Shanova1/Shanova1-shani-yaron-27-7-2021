@@ -9,28 +9,25 @@ import useConvertToF from "../../Hooks/useConvertToF";
 
 function CityFiveDaysWeather(props) {
   const [dataState, setDataState] = useState(null);
+  const dispatch = useDispatch();
   const fiveDaysFetchStatus = useSelector(
     (state) => state.fiveDaysWeather.status
   );
-
   const chosenCity = props.chosenCity;
   const cityFiveDaysWeather = useSelector(fiveDaysWeather);
-  const dispatch = useDispatch();
+  const showCelsuis = useSelector((state) => state.temperatureDegree.celcius);
+  const { convertToF } = useConvertToF();
+  const dayName = (value) => {
+    const date = new Date(value);
+    const day = date.toString().split(" ")[0];
+    return day;
+  };
 
   useEffect(() => {
     if (chosenCity.cityKey) {
       dispatch(fetchFiveDaysWeather(chosenCity.cityKey));
     }
   }, [chosenCity]);
-
-  const showCelsuis = useSelector((state) => state.temperatureDegree.celcius);
-  const { convertToF } = useConvertToF();
-
-  const dayName = (value) => {
-    const date = new Date(value);
-    const day = date.toString().split(" ")[0];
-    return day;
-  };
 
   useEffect(() => {
     setDataState(fiveDaysFetchStatus);

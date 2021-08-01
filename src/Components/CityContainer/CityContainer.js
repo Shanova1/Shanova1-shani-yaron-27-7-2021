@@ -65,21 +65,22 @@ function CityContainer() {
     setDataState(currentPosCityStatus);
   }, [currentPosCityStatus]);
 
+  useEffect(() => {
+    if (dataState === "failed") {
+      dispatch(
+        setChosenCity({
+          cityKey: "215854",
+          cityName: "Tel Aviv",
+        })
+      );
+    }
+  }, [dataState]);
+
   return (
     <>
-      {dataState === "loading" && (
-        <h2 style={{ marginBottom: "300px" }}>Loading...</h2>
-      )}
-      {dataState === "failed" && (
-        <h2 style={{ marginBottom: "300px" }}>Oops! Something went wrong.</h2>
-      )}
-      {dataState === "succeeded" && (
-        <div>
-          <FavoriteButton city={chosenCity} />
-          <ChosenCityContainer chosenCity={chosenCity} />
-          <CityFiveDaysWeather chosenCity={chosenCity} />
-        </div>
-      )}
+      <FavoriteButton city={chosenCity} />
+      <ChosenCityContainer chosenCity={chosenCity} />
+      <CityFiveDaysWeather chosenCity={chosenCity} />
     </>
   );
 }

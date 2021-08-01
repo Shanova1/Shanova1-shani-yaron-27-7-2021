@@ -8,4 +8,3 @@ export const getCityPic = async (chosenCity) => {
     `https://api.unsplash.com/photos/random?client_id=${picApiKey}&query=${cityNameForPic}&content_filter=high`
   );
 };
-

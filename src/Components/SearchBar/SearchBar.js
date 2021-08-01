@@ -6,21 +6,20 @@ import {
   fetchSuggestions,
 } from "../../Redux/Reducers/suggestionsSlice";
 import { setChosenCity } from "../../Redux/Reducers/chosenCitySlice";
-// import { Card } from "react-bootstrap";
 import "./SearchBar.css";
 import { Form, ListGroup } from "react-bootstrap";
 
 function SearchBar() {
   const [showOptions, setShowOptions] = useState(false);
+  const [dataState, setDataState] = useState(null);
 
   const userInput = useSelector((state) => state.searchBar.userInput);
   const suggestions = useSelector(allSuggestons);
+  const dispatch = useDispatch();
 
   const suggestionsFetchStatus = useSelector(
     (state) => state.suggestions.status
   );
-
-  const dispatch = useDispatch();
 
   const handleInput = (e) => {
     dispatch(setUserInput(e.target.value));
@@ -42,6 +41,10 @@ function SearchBar() {
     setShowOptions(true);
   }, [suggestions]);
 
+  useEffect(() => {
+    setDataState(suggestionsFetchStatus);
+  }, [suggestionsFetchStatus]);
+
   return (
     <>
       <div className="search-wrapper">
@@ -58,54 +61,26 @@ function SearchBar() {
           </Form.Group>
         </Form>
 
-        <ListGroup className="options-list-group">
-          {showOptions && userInput && suggestions.length
-            ? suggestions.map((city) => (
-                <ListGroup.Item
-                  className="options"
-                  key={1 + city.Key}
-                  onClick={() => {
-                    handleClick({
-                      cityKey: city.Key,
-                      cityName: city.LocalizedName,
-                    });
-                  }}
-                >
-                  {city.LocalizedName}, {city.Country.LocalizedName}
-                </ListGroup.Item>
-              ))
-            : null}
-        </ListGroup>
-      </div>
+        {dataState === "loading" && (
+          <ListGroup className="options-list-group">
+            <ListGroup.Item>Loading...</ListGroup.Item>
+          </ListGroup>
+        )}
 
-      {/* <form className="search-wrapper">
-        <input
-          type="text"
-          placeholder="Enter city name in English"
-          value={userInput}
-          onChange={handleInput}
-          className="search-bar"
-        />
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          className="feather-search"
-        >
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
+        {dataState === "failed" &&
+          <Form.Text>
+            {userInput &&
+            'Oops! Something went wrong.'
+            }
+          </Form.Text>
+        }
 
-        {
-          <div className="suggestions-container">
-            <ul className="options">
-              {
-                showOptions && userInput && suggestions.length 
-                ? 
-                suggestions.map((city) => (
-                  <li
+        {dataState === "succeeded" && (
+          <ListGroup className="options-list-group">
+            {showOptions && userInput
+              ? suggestions.map((city) => (
+                  <ListGroup.Item
+                    className="options"
                     key={1 + city.Key}
                     onClick={() => {
                       handleClick({
@@ -115,14 +90,12 @@ function SearchBar() {
                     }}
                   >
                     {city.LocalizedName}, {city.Country.LocalizedName}
-                  </li>
+                  </ListGroup.Item>
                 ))
-                : null 
-              }
-            </ul>
-          </div>
-        }
-      </form> */}
+              : null}
+          </ListGroup>
+        )}
+      </div>
     </>
   );
 }

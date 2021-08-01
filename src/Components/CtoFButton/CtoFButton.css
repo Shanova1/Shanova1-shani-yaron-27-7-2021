@@ -1,0 +1,13 @@
+.unit-button-container {
+  padding-top: 5px;
+}
+
+/* Samsung Galaxy S5 Portrait */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .unit-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 10px;
+  }
+}

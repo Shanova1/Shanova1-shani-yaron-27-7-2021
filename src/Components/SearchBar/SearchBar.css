@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 57px;
   width: 100%;
   align-content: center;
   align-items: center;
@@ -23,12 +23,6 @@
   text-align: center;
 }
 
-.feather-search {
-  font-weight: 700;
-  position: relative;
-  right: 50px;
-  align-self: center;
-}
 
 .suggestions-container {
   display: flex;
@@ -55,12 +49,31 @@
 
 /* Samsung Galaxy S5 Portrait */
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  
+  .search-wrapper {
+    margin-top: 40px;
+
+  }
+  
+  .search-bar {
+    font-size: large;
+  }
+
   .search-bar-form {
     width: 85%;
   }
 
   .options-list-group {
+    position: relative;
     width: 80%;
+    top: -13px;
+  }
+
+  .search-error {
+    font-size: 0.875em;
+      color: #545050;
   }
   
 }
+
+

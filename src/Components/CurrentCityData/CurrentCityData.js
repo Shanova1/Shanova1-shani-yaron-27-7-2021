@@ -25,16 +25,16 @@ function CurrentCityData(props) {
           isFavorite ? "city-data-wrapper-favorite" : "city-data-wrapper"
         }`}
       >
-        <h2 className={`${
-            isFavorite ? "city-name-favorite" : "city-name"
-          }`}>{chosenCity.cityName}</h2>
+        <h2 className={`${isFavorite ? "city-name-favorite" : "city-name"}`}>
+          {chosenCity.cityName}
+        </h2>
         {dataState === "loading" && <h2>Loading...</h2>}
         {dataState === "failed" && <h2>Oops! Something went wrong.</h2>}
         {dataState === "succeeded" && (
           <div
-          className={`${
-            isFavorite ? "city-data-card-favorite" : "city-data-card"
-          }`}
+            className={`${
+              isFavorite ? "city-data-card-favorite" : "city-data-card"
+            }`}
           >
             {showCelsuis ? (
               <p>

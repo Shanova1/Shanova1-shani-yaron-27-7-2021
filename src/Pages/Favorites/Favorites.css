@@ -23,10 +23,8 @@
   display: grid;
   grid-template-columns: repeat(3, 25%);
   column-gap: 5%;
-  row-gap: 5%;
   justify-content: center;
   width: 90%;
-  margin-top: 60px;
 }
 
 .favorite-card-container {
@@ -49,6 +47,9 @@
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
   .favorites-cities-grid {
     display: block;
+    row-gap: 20px;
+    grid-template-columns: 1fr;
+    row-gap: 0px;
   }
 
   .favorites-title {
